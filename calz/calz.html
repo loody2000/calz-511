@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سيرة ذاتية -  راشد</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'El Messiri', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        :root {
+            --primary: #333333;
+            --primary-light: #666666;
+            --dark: #121212;
+            --darker: #0A0A0A;
+            --light: #FFFFFF;
+            --gray: #555555;
+            --light-gray: #EEEEEE;
+            --transition: all 0.3s ease;
+        }
+        
+        body {
+            background-color: #fff; 
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+            position: relative;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #f5f5f5 0%, #e0e0e0 50%, #f0f0f0 100%);
+            transition: var(--transition);
+        }
+        
+        /* Dark Mode Variables */
+        body.dark-mode {
+            --primary: #E0E0E0;
+            --primary-light: #B0B0B0;
+            --dark: #E0E0E0;
+            --darker: #121212;
+            --light: #1E1E1E;
+            --gray: #A0A0A0;
+            --light-gray: #2A2A2A;
+            
+            background: linear-gradient(135deg, #1a1a1a 0%, #121212 50%, #1c1c1c 100%);
+            color: #E0E0E0;
+        }
+        
+        /* Dark Mode Specific Adjustments */
+        body.dark-mode .section {
+            background: rgba(30, 30, 30, 0.9);
+            border-color: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        body.dark-mode .section::before {
+            background: linear-gradient(to bottom, #B0B0B0, #E0E0E0);
+        }
+        
+        body.dark-mode .skill-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        body.dark-mode .skill-card:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        body.dark-mode .experience-item {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: var(--primary);
+        }
+        
+        body.dark-mode .experience-item::after {
+            background: linear-gradient(to right, #B0B0B0, #E0E0E0);
+        }
+        
+        body.dark-mode .badge {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        #particles-js {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            position: relative;
+            z-index: 10;
+        }
+        
+        header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 2rem 0;
+            margin-bottom: 2rem;
+            animation: fadeIn 1s ease forwards;
+        }
+        
+        .profile-image-container {
+            position: relative;
+            margin-bottom: 1.5rem;
+        }
+        
+        .profile-image {
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            border: 5px solid var(--primary);
+            object-fit: cover;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+            transition: var(--transition);
+            background: linear-gradient(135deg, #f0f0f0, #d0d0d0);
+            padding: 5px;
+            position: relative;
+            z-index: 2;
+            filter: grayscale(100%);
+        }
+        
+        .profile-image-border {
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #999, #666, #333, #000);
+            z-index: 1;
+            filter: blur(12px);
+            opacity: 0.5;
+            animation: rotate 8s linear infinite;
+        }
+        
+        body.dark-mode .profile-image-border {
+            background: linear-gradient(45deg, #555, #777, #999, #BBB);
+        }
+        
+        .profile-image:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        .profile-info h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+            font-weight: 700;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            letter-spacing: -1px;
+        }
+        
+        .section {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            padding: 2.5rem;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            animation: slideUp 0.8s ease forwards;
+            opacity: 0;
+            transform: translateY(30px);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--primary), #000);
+        }
+        
+        .section-title {
+            font-size: 1.8rem;
+            margin-bottom: 1.8rem;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            padding-bottom: 0.8rem;
+            border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+        }
+        
+        body.dark-mode .section-title {
+            border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .section-title i {
+            margin-left: 10px;
+            background: rgba(0, 0, 0, 0.05);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+        }
+        
+        body.dark-mode .section-title i {
+            background: rgba(255, 255, 255, 0.05);
+        }
+        
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.2rem;
+            justify-content: center;
+        }
+        
+        .skill-card {
+            background: rgba(0, 0, 0, 0.03);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            padding: 1.2rem 1.8rem;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            cursor: default;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            position: relative;
+            overflow: hidden;
+            min-width: 180px;
+            text-align: center;
+            color: var(--gray);
+        }
+        
+        .skill-card i {
+            font-size: 1.3rem;
+            display: block;
+            margin: 0 auto 5px;
+            color: var(--gray);
+        }
+        
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            background: rgba(0, 0, 0, 0.05);
+            border-color: rgba(0, 0, 0, 0.2);
+        }
+        
+        .experience-item {
+            padding: 1.8rem;
+            margin-bottom: 1.8rem;
+            background: rgba(0, 0, 0, 0.03);
+            border-radius: 12px;
+            border-left: 4px solid var(--primary);
+            transition: var(--transition);
+            position: relative;
+        }
+        
+        .experience-item::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary), #000);
+            border-radius: 2px;
+        }
+        
+        .experience-item:hover {
+            background: rgba(0, 0, 0, 0.05);
+            transform: translateX(10px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .experience-year {
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 0.6rem;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .experience-year i {
+            font-size: 1.1rem;
+            color: var(--primary);
+        }
+        
+        .experience-title {
+            font-size: 1.5rem;
+            margin-bottom: 0.6rem;
+            color: var(--dark);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .experience-company {
+            color: var(--gray);
+            margin-bottom: 1.2rem;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .experience-company i {
+            color: var(--primary);
+        }
+        
+        .experience-description {
+            color: var(--gray);
+            line-height: 1.8;
+            padding-right: 1rem;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-top: 2rem;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.8rem;
+            margin-top: 1.5rem;
+        }
+        
+        .social-links a {
+            color: var(--gray);
+            font-size: 1.8rem;
+            transition: var(--transition);
+            position: relative;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        
+        body.dark-mode .social-links a {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .social-links a:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            background: rgba(0, 0, 0, 0.1);
+        }
+        
+        body.dark-mode .social-links a:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes slideUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .section:nth-child(2) { animation-delay: 0.2s; }
+        .section:nth-child(3) { animation-delay: 0.4s; }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 1.2rem;
+            }
+            
+            .profile-image {
+                width: 180px;
+                height: 180px;
+            }
+            
+            .profile-info h1 {
+                font-size: 2.2rem;
+            }
+            
+            .section {
+                padding: 1.8rem;
+            }
+            
+            .section-title {
+                font-size: 1.5rem;
+            }
+            
+            .experience-title {
+                font-size: 1.3rem;
+            }
+            
+            .social-links a {
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+            }
+        }
+        
+        /* Highlight for experience */
+        .highlight {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .highlight::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 8px;
+            height: 100%;
+            background: linear-gradient(to bottom, #999, #666);
+            z-index: 1;
+        }
+        
+        body.dark-mode .highlight::before {
+            background: linear-gradient(to bottom, #777, #999);
+        }
+        
+        /* Professional Badges */
+        .badge-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin-top: 1.2rem;
+        }
+        
+        .badge {
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(0, 0, 0, 0.05);
+            color: var(--gray);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Entry Screen */
+        #entry-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 10000;
+            cursor: pointer;
+        }
+        
+        .entry-text {
+            font-size: 1.2rem;
+            color: #fff;
+            text-align: center;
+            padding: 1rem 1.5rem;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+            letter-spacing: 1px;
+            animation: pulseText 2s infinite;
+        }
+        
+        @keyframes pulseText {
+            0% { 
+                transform: scale(1); 
+                text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+            }
+            50% { 
+                transform: scale(1.03); 
+                text-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+            }
+            100% { 
+                transform: scale(1); 
+                text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+            }
+        }
+        
+        @keyframes fadeOut {
+            to { opacity: 0; visibility: hidden; }
+        }
+        
+        /* Dark Mode Toggle */
+        .dark-mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: var(--transition);
+        }
+        
+        body.dark-mode .dark-mode-toggle {
+            background: rgba(30, 30, 30, 0.8);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+        }
+        
+        .dark-mode-toggle i {
+            font-size: 1.5rem;
+            color: #333;
+            transition: var(--transition);
+        }
+        
+        body.dark-mode .dark-mode-toggle i {
+            color: #FFD700;
+        }
+        
+        .dark-mode-toggle:hover {
+            transform: scale(1.1) rotate(15deg);
+        }
+        
+        @media (max-width: 768px) {
+            .dark-mode-toggle {
+                width: 40px;
+                height: 40px;
+                top: 15px;
+                right: 15px;
+            }
+            
+            .dark-mode-toggle i {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Entry Screen -->
+    <div id="entry-screen">
+        <div class="entry-text">اضغط على الشاشه للدخول</div>
+    </div>
+    
+    <!-- Dark Mode Toggle -->
+    <div class="dark-mode-toggle" id="darkModeToggle">
+        <i class="fas fa-moon"></i>
+    </div>
+    
+    <!-- Particle Network Background -->
+    <div id="particles-js"></div>
+    
+    <div class="container">
+        <header>
+            <div class="profile-image-container">
+                <div class="profile-image-border"></div>
+                <img src="https://i.ibb.co/35WhqWgL/f478b74da921cc94f0007c2a6987221e.webp" alt="صورة كالز راشد" class="profile-image">
+            </div>
+            <div class="profile-info">
+                <h1> راشد</h1>
+                <p>مبرمج ومصمم ثلاثي الأبعاد</p>
+            </div>
+        </header>
+        
+        <section class="section" style="animation-delay: 0.2s">
+            <h2 class="section-title"><i class="fas fa-code"></i> اللغات البرمجيه</h2>
+            <div class="skills-container">
+                <div class="skill-card">
+                    <i class="fab fa-js"></i>
+                    JavaScript
+                </div>
+                <div class="skill-card">
+                    <i class="fab fa-html5"></i>
+                    HTML5
+                </div>
+                <div class="skill-card">
+                    <i class="fab fa-css3-alt"></i>
+                    CSS3
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-cube"></i>
+                    Blender 3D
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-drafting-compass"></i>
+                    3D Modeling
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-film"></i>
+                    Animation
+                </div>
+            </div>
+        </section>
+        
+        <section class="section" style="animation-delay: 0.4s">
+            <h2 class="section-title"><i class="fas fa-briefcase"></i> المهارات التقنية</h2>
+            
+            <div class="experience-item highlight">
+                <div class="experience-year"><i class="far fa-calendar-alt"></i> 2025 - الحاضر</div>
+                <h3 class="experience-title"><i class="fas fa-laptop-code"></i> مبرمج مواقع ويب</h3>
+                <div class="experience-company"><i class="fas fa-building"></i> WebSolutions</div>
+                <p class="experience-description">
+                    تطوير وتصميم مواقع ويب متكاملة باستخدام أحدث التقنيات. بناء تطبيقات ويب تفاعلية وسريعة الاستجابة مع التركيز على تجربة المستخدم والأداء.
+                </p>
+                <div class="badge-container">
+                    <span class="badge">
+                        <i class="fab fa-js"></i> JavaScript
+                    </span>
+                    <span class="badge">
+                        <i class="fab fa-html5"></i> HTML5
+                    </span>
+                    <span class="badge">
+                        <i class="fab fa-css3-alt"></i> CSS3
+                    </span>
+                </div>
+            </div>
+            
+            <div class="experience-item">
+                <div class="experience-year"><i class="far fa-calendar-alt"></i> 2022 - 2023</div>
+                <h3 class="experience-title"><i class="fas fa-laptop-code"></i> مصمم ومطور ثلاثي الأبعاد</h3>
+                <div class="experience-company"><i class="fas fa-building"></i> CreativeVision</div>
+                <p class="experience-description">
+                    تصميم نماذج ثلاثية الأبعاد عالية الجودة للعروض المرئية والألعاب. تطوير مشاهد تفاعلية وتجارب غامرة باستخدام تقنيات الويب والتصميم ثلاثي الأبعاد.
+                </p>
+                <div class="badge-container">
+                    <span class="badge">
+                        <i class="fas fa-cube"></i> Blender 3D
+                    </span>
+                    <span class="badge">
+                        <i class="fas fa-drafting-compass"></i> 3D Modeling
+                    </span>
+                </div>
+            </div>
+            
+            <div class="experience-item">
+                <div class="experience-year"><i class="far fa-calendar-alt"></i> 2022 - 2022</div>
+                <h3 class="experience-title"><i class="fas fa-cube"></i> فنان ثلاثي الأبعاد متخصص</h3>
+                <div class="experience-company"><i class="fas fa-building"></i> Art3D Studio</div>
+                <p class="experience-description">
+                    إنشاء نماذج ثلاثية الأبعاد معقدة للعروض المعمارية والسينمائية. تصميم مواد واقعية وإضاءة طبيعية للمشاهد.
+                </p>
+                <div class="badge-container">
+                    <span class="badge">
+                        <i class="fas fa-film"></i> Animation
+                    </span>
+                    <span class="badge">
+                        <i class="fas fa-lightbulb"></i> Lighting & Materials
+                    </span>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <footer>
+        <div class="social-links">
+            <a href="https://www.instagram.com/i.calz" class="instagram" target="_blank">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://discord.com/users/866233150001643520" class="discord" target="_blank">
+                <i class="fab fa-discord"></i>
+            </a>
+            <a href="https://www.tiktok.com/@jn74" class="tiktok" target="_blank">
+                <i class="fab fa-tiktok"></i>
+            </a>
+        </div>
+        <p>© 2023  راشد . جميع الحقوق محفوظة</p>
+    </footer>
+    
+    <!-- Particles.js Library -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    
+    <script>
+        // Initialize particles.js with black and white theme
+        document.addEventListener('DOMContentLoaded', function() {
+            particlesJS('particles-js', {
+                "particles": {
+                    "number": {
+                        "value": 120,
+                        "density": {
+                            "enable": true,
+                            "value_area": 800
+                        }
+                    },
+                    "color": {
+                        "value": "#333333"
+                    },
+                    "shape": {
+                        "type": "circle",
+                        "stroke": {
+                            "width": 0,
+                            "color": "#000000"
+                        }
+                    },
+                    "opacity": {
+                        "value": 0.5,
+                        "random": true,
+                        "anim": {
+                            "enable": true,
+                            "speed": 1,
+                            "opacity_min": 0.1,
+                            "sync": false
+                        }
+                    },
+                    "size": {
+                        "value": 3,
+                        "random": true,
+                        "anim": {
+                            "enable": true,
+                            "speed": 4,
+                            "size_min": 0.3,
+                            "sync": false
+                        }
+                    },
+                    "line_linked": {
+                        "enable": true,
+                        "distance": 150,
+                        "color": "#999999",
+                        "opacity": 0.4,
+                        "width": 1
+                    },
+                    "move": {
+                        "enable": true,
+                        "speed": 2,
+                        "direction": "none",
+                        "random": true,
+                        "straight": false,
+                        "out_mode": "out",
+                        "bounce": false,
+                        "attract": {
+                            "enable": true,
+                            "rotateX": 600,
+                            "rotateY": 1200
+                        }
+                    }
+                },
+                "interactivity": {
+                    "detect_on": "canvas",
+                    "events": {
+                        "onhover": {
+                            "enable": true,
+                            "mode": "grab"
+                        },
+                        "onclick": {
+                            "enable": true,
+                            "mode": "push"
+                        },
+                        "resize": true
+                    },
+                    "modes": {
+                        "grab": {
+                            "distance": 140,
+                            "line_linked": {
+                                "opacity": 1
+                            }
+                        },
+                        "push": {
+                            "particles_nb": 6
+                        }
+                    }
+                },
+                "retina_detect": true
+            });
+            
+            // Add floating effect to profile image
+            const profileImg = document.querySelector('.profile-image');
+            profileImg.style.animation = 'float 4s ease-in-out infinite';
+            
+            // Add scroll animations
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+            
+            document.querySelectorAll('.section').forEach(section => {
+                observer.observe(section);
+            });
+            
+            // Entry screen functionality
+            const entryScreen = document.getElementById('entry-screen');
+            
+            function removeEntryScreen() {
+                entryScreen.style.animation = 'fadeOut 0.8s ease forwards';
+                setTimeout(() => {
+                    entryScreen.style.display = 'none';
+                }, 800);
+            }
+            
+            // Click anywhere to enter
+            entryScreen.addEventListener('click', removeEntryScreen);
+            
+            // Dark Mode Toggle Functionality
+            const darkModeToggle = document.getElementById('darkModeToggle');
+            const darkModeIcon = darkModeToggle.querySelector('i');
+            
+            // Check for saved theme preference
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                document.body.classList.add('dark-mode');
+                darkModeIcon.classList.remove('fa-moon');
+                darkModeIcon.classList.add('fa-sun');
+            }
+            
+            // Toggle dark mode
+            darkModeToggle.addEventListener('click', () => {
+                document.body.classList.toggle('dark-mode');
+                
+                // Change icon based on mode
+                if (document.body.classList.contains('dark-mode')) {
+                    darkModeIcon.classList.remove('fa-moon');
+                    darkModeIcon.classList.add('fa-sun');
+                    localStorage.setItem('theme', 'dark');
+                } else {
+                    darkModeIcon.classList.remove('fa-sun');
+                    darkModeIcon.classList.add('fa-moon');
+                    localStorage.setItem('theme', 'light');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
